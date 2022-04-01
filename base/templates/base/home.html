@@ -7,11 +7,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{% static 'styles/styles.css' %}" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="../../../static/styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../../../static/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css"> -->
+
     <title>Sentiment Analysis System Using NB</title>
    
 
-    <style>
+    <!-- <style>
 
         body{
             /* background-color: rgb(80, 81, 82); */
@@ -103,37 +108,109 @@
         }
         
 
-    </style>
+    </style> -->
 
 </head>
 <body>
-
-
-    <div class="container">
+    <div id="top"></div>
         
-            <h1>Welcome to the world of Sentiment</h1>
+        <div class="navbar" id="nav">
+            <a class="topic" href="#top" >Sentiment Analysis</a>
+            <a  href="/"><i class="fa fa-fw fa-home"></i> Home</a> 
+            <a  href="#about"><i class="fa fa-fw fa-info-circle"></i> About</a> 
+            
+        </div>
+
+        <!-- <div class="bgimage">
+            <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/08/Sentiment-Analysis-scaled.jpg" >
+        </div> -->
+
+
+
+    <div class="container-form" id="form">
+         
         
-    <form name="myForm" action="getSentiment" method="post"  > 
-        <!-- onsubmit="return validateForm()" -->
-        {% csrf_token %}
-    <label for="txtarea">Enter the sentence:</label>
-    <input type="text" id="text" name="txtarea" >
-	<br><br>
-    <input type="submit" id= "btn" value="Analyze">
-    
-    </form>
-    <span>Analysis</span>
-    <div class="result" >
-        {{result}}
-        {{prob}}
-    </div>   
+        <form name="myForm" action="getSentiment" method="post"  >
+            <!-- onsubmit="return validateForm()" -->
+            {% csrf_token %}
+            <fieldset>
+                <legend id="">Analyze the Sentiment:</legend>
+
+                <div class="form-content">
+                    <label for="txtarea">Enter the sentence:</label>
+                    <input type="text" id="text" name="txtarea" value="{{text}}" >
+                    <br><br><br>
+                    <!-- adding two buttons -->
+                    <input type="submit" id= "btn" value="Analyze" >
+                    <input type="button" id="btn" onclick="window.location.href = '/';" value="Clear" 
+                         style="background-color: rgba(20, 173, 20, 0.877);"/>
+                </div>
+
+            </br></br>
+                <label><b>Analysis</b></label>
+                <br><br>
+               <label>Sentiment</label>
+                    <div class="result" >
+                        {{result}}
+                    </div> 
+                    <br><br>
+            </fieldset>
+        </form>
+      
+    	</div>
+                
+       
+
+    <!--about section --> 
+
+       <div class="about" id="about">
+            <fieldset>
+                <legend>About LSTM</legend>
+
+                <p class="introduction">
+                    <b>Long Short Term Memory</b> Network is an advanced RNN, a sequential network, that allows information to persist. It is capable of handling the vanishing gradient problem faced by RNN. A recurrent neural network is also known as RNN is used for persistent memory.
+                    Let's say while watching a video you remember the previous scene or while reading a book you know what happened in the earlier chapter. Similarly RNNs work, they remember the previous information and use it for processing the current input. The shortcoming of RNN is, they can not remember Long term dependencies
+                    due to vanishing gradient. LSTMs are explicitly designed to avoid long-term dependency problems.
+                </p>
 
 
-</div>
+                <div class="lstm-figure">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Long_Short-Term_Memory.svg/1594px-Long_Short-Term_Memory.svg.png" alt="LSTM Figure">
+                    <br>
+                    <i>Fig: LSTM Architecture</i>
+                </div>
 
-    
+            </fieldset>
+         
+           </div>
 
-   
+
+           <!-- Load font awesome icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <!-- The social media icon bar -->
+            <!-- <div class="icon-bar">
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="google"><i class="fa fa-google"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+            </div> -->
+
+
+
+
+            <div class="footer">
+                <p>&copy; 2022 | Sentiment Analysis-Using LSTM</p>
+            </div>
+
+
+
+               
+           <div id="gototop">
+            <a href="#top"><i class="fa fa-arrow-up"></i></a> 
+           </div>
+             
 
 
 </body>
