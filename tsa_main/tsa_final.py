@@ -14,7 +14,7 @@ Original file is located at
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-df= pd.read_csv('dataset1.csv', sep=',')
+df= pd.read_csv('dataset.csv', sep=',')
 df.head()
 
 # Shape of Dataset
